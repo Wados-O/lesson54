@@ -49,7 +49,7 @@ public class StudentsDateBase {
     return reader.readLine();
   }
   private static void addStudentInteractive(List<Student> students){
-    Student student = new Student();
+    Student student = Student.readInteractive();
     students.add(student);
     System.out.println("Добавляем студента" +student);
   }
