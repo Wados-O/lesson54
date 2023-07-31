@@ -9,13 +9,15 @@ public class Main {
     pizzas.add(new Pizza("A","L",25));
     pizzas.add(new Pizza("A","S",17));
     pizzas.add(new Pizza("B","M",9));
-    pizzas.add(new Pizza("A","SX",15));
+    pizzas.add(new Pizza("A","XS",15));
 
     System.out.println("До сортировки:");
     for (Pizza p : pizzas){
       System.out.println(p);
     }
-    Collections.sort(pizzas);
+
+    pizzas.sort(new PizzaPriceComparator());
+
     System.out.println("После сортировки: ");
     for (Pizza p : pizzas){
       System.out.println(p);
