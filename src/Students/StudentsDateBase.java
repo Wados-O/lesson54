@@ -4,6 +4,7 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 public class StudentsDateBase {
@@ -16,15 +17,16 @@ public class StudentsDateBase {
     while (!command.equalsIgnoreCase("выход")) {
       switch (command.toLowerCase()) {
         case "добавить":
-          addStudentInteractive(students);
+          addStudentInteractive(reader,students);
 
           break;
         case "сохранить":
           saveListStudents(students);
 
           break;
-        case "вывести":
 
+        case "вывести":
+          printStudentsList(reader,students);
           break;
         default:
           System.out.println(" Неизвестная команда " + command);
@@ -48,17 +50,35 @@ public class StudentsDateBase {
     printMenu();
     return reader.readLine();
   }
-  private static void addStudentInteractive(List<Student> students){
-    Student student = Student.readInteractive();
+  private static void addStudentInteractive(BufferedReader reader,List<Student> students)
+      throws IOException {
+    Student student = Student.readInteractive(reader);
     students.add(student);
     System.out.println("Добавляем студента" +student);
   }
   private static void saveListStudents(List<Student> students){
     System.out.println("Сохраняем список" + students);
   }
-  private static void printStudentsList(List<Student> students){
+  private static void printStudentsList(BufferedReader reader,List<Student> students)throws IOException{
     System.out.println("Выводим список на экран");
-    for (Student s : students){
+    List<Student> toPrint = new ArrayList<>(students);
+    System.out.println("Выберите режим сортировки");
+    System.out.println("1.По алфавиту");
+    System.out.println("2.По убыванию среднего балла");
+    String mode = reader.readLine();
+    switch (mode){
+      case "1":
+        toPrint.sort(new StudentNameComparator());
+        break;
+      case "2":
+        toPrint.sort(new StudentScoreComparator());
+        Collections.reverse(toPrint);
+        break;
+      default:
+        System.out.println("Неизвестный режим сортировки: " + mode);
+        break;
+    }
+    for (Student s : toPrint){
       System.out.println(s);
     }
   }
