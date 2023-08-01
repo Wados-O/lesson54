@@ -1,6 +1,7 @@
 package homework;
 
 public class Book {
+
   private String name;
   private String authors;
   private int lists;
@@ -10,4 +11,29 @@ public class Book {
     this.authors = authors;
     this.lists = lists;
   }
+
+  public String getName() {
+    return name;
+  }
+
+  public String getAuthors() {
+    return authors;
+  }
+
+  public int getLists() {
+    return lists;
+  }
+
+  public void setName(String name) {
+    this.name = name;
+  }
+
+  public void setAuthors(String authors) {
+    this.authors = authors;
+  }
+
+  public void setLists(int lists) {
+    this.lists = lists;
+  }
+
 }
