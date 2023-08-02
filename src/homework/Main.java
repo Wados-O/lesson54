@@ -6,14 +6,24 @@ import java.util.List;
 
 public class Main {
 
+  /**
+   * Создайте класс Book (книга),
+   * в конструктор которого передавайте автора, название книги и количество страниц.
+   *
+   * Реализуйте интерфейс для сравнения книг: они должны сортироваться по авторам,
+   * а если авторы совпадают - по названиям (и там, и там - по алфавиту, "в словарном порядке"),
+   * а если и авторы совпадают - по количеству страниц (по возрастанию).
+   * @param args
+   */
+
   public static void main(String[] args) {
     List<Book> books = new ArrayList<>();
-    books.add(new Book("Book1","author1",132));
-    books.add(new Book("Book2","author1",96));
-    books.add(new Book("Book3","author3",12));
-    books.add(new Book("Book4","author2",152));
-    books.add(new Book("Book5","author2",142));
-    books.add(new Book("Book6","author3",123));
+    books.add(new Book("author1","Book1",132));
+    books.add(new Book("author1","Book2",96));
+    books.add(new Book("author3","Book3",12));
+    books.add(new Book("author2","Book4",152));
+    books.add(new Book("author2","Book5",142));
+    books.add(new Book("author3","Book6",123));
     System.out.println("До сортировки:  ");
     for (Book b : books){
       System.out.println(b);

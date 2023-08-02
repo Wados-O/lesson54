@@ -1,35 +1,36 @@
 package homework;
 
 public class Book {
-
-  private String name;
   private String authors;
+  private String name;
+
   private int lists;
 
-  public Book(String name, String authors, int lists) {
-    this.name = name;
-    this.authors = authors;
-    this.lists = lists;
-  }
+  public Book( String authors,String name, int lists) {
 
-  public String getName() {
-    return name;
+    this.authors = authors;
+    this.name = name;
+    this.lists = lists;
   }
 
   public String getAuthors() {
     return authors;
   }
 
-  public int getLists() {
-    return lists;
+  public void setAuthors(String authors) {
+    this.authors = authors;
+  }
+
+  public String getName() {
+    return name;
   }
 
   public void setName(String name) {
     this.name = name;
   }
 
-  public void setAuthors(String authors) {
-    this.authors = authors;
+  public int getLists() {
+    return lists;
   }
 
   public void setLists(int lists) {
@@ -38,10 +39,10 @@ public class Book {
 
   @Override
   public String toString() {
-    return "Book{" +
-        "name='" + name + '\'' +
-        ", authors='" + authors + '\'' +
-        ", lists=" + lists +
-        '}';
+    return "Book : " +
+        " authors - " + authors + '\'' +
+        ", name - " + name + '\'' +
+        ", lists - " + lists +
+        '|';
   }
 }
