@@ -36,4 +36,12 @@ public class Book {
     this.lists = lists;
   }
 
+  @Override
+  public String toString() {
+    return "Book{" +
+        "name='" + name + '\'' +
+        ", authors='" + authors + '\'' +
+        ", lists=" + lists +
+        '}';
+  }
 }
